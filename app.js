@@ -7,9 +7,7 @@ tg.MainButton.color = '#2cab37';
 
 let item = "";
 
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-    tg.sendData(item);
-});
+
 
 let usercard = document.getElementById("usercard");
 
@@ -19,8 +17,7 @@ p.innerText = `${tg.initDataUnsafe.user.first_name}
 ${tg.initDataUnsafe.user.last_name}`;
 
 usercard.appendChild(p);
-
-document.getElementById("saveButton").addEventListener("click", function() {
+Telegram.WebApp.onEvent("saveButtonClicked", function(){
     let title = document.getElementById("title").value;
     let text = document.getElementById("text").value;
     let days = document.getElementById("days").value;

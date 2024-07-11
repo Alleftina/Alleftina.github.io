@@ -27,7 +27,5 @@ document.getElementById("saveButton").addEventListener("click", function() {
     let time = document.getElementById("time").value;
 
     item = JSON.stringify({ title, text, days, time });
-
-    tg.MainButton.setText("Отправить данные");
-    tg.MainButton.show();
+	tg.sendData(item);
 });

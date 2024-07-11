@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 40px;
 }
 
 #usercard {
@@ -21,7 +21,7 @@ input, textarea, button {
 }
 
 button {
-    background-color: #2cab37;
+    background-color: #7FFFD4;
     color: #7FFFD4;
     border: none;
     padding: 10px;

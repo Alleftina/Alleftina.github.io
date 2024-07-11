@@ -4,6 +4,7 @@ tg.expand();
 
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
+tg.MainButton.show();
 
 let item = "";
 
@@ -20,8 +21,9 @@ let timeInput = document.getElementById("time");
 let saveButton = document.getElementById("saveButton");
 
 function checkForm() {
+    saveButton.style.display = "block";
+	
     if (titleInput.value && textInput.value && daysInput.value && timeInput.value) {
-        saveButton.style.display = "block";
         tg.MainButton.setText("Отправить данные");
         item = JSON.stringify({
             title: titleInput.value,
@@ -29,7 +31,6 @@ function checkForm() {
             days: daysInput.value,
             time: timeInput.value
         });
-        tg.MainButton.show();
     } else {
         saveButton.style.display = "none";
         tg.MainButton.hide();

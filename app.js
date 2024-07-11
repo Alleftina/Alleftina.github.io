@@ -22,15 +22,10 @@ let timeInput = document.getElementById("time");
 let saveButton = document.getElementById("saveButton");
 
 
-btn1.titleInput("input", function(){
-	if (tg.MainButton.isVisible) {
-		tg.MainButton.hide();
-	}
-	else {
+titleInput.titleInput("input", function(){
 		tg.MainButton.setText("Вы выбрали товар 1!");
 		item = "1";
 		tg.MainButton.show();
-	}
 });
 
 saveButton.addEventListener("click", function() {

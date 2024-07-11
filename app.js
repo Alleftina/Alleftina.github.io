@@ -2,7 +2,7 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
-tg.MainButton.textColor = '#2cab37';
+tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 tg.MainButton.setText("Отправить");
 tg.MainButton.show();

@@ -7,7 +7,9 @@ tg.MainButton.color = '#2cab37';
 
 let item = "";
 
-
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+    tg.sendData(item);
+});
 
 let usercard = document.getElementById("usercard");
 
@@ -17,12 +19,15 @@ p.innerText = `${tg.initDataUnsafe.user.first_name}
 ${tg.initDataUnsafe.user.last_name}`;
 
 usercard.appendChild(p);
-Telegram.WebApp.onEvent("saveButtonClicked", function(){
+
+document.getElementById("saveButton").addEventListener("click", function() {
     let title = document.getElementById("title").value;
     let text = document.getElementById("text").value;
     let days = document.getElementById("days").value;
     let time = document.getElementById("time").value;
 
     item = JSON.stringify({ title, text, days, time });
-	tg.sendData(item);
+
+    tg.MainButton.setText("Отправить данные");
+    tg.MainButton.show();
 });

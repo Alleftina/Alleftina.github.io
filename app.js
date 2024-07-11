@@ -2,7 +2,7 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
-tg.MainButton.textColor = '#FFFFFF';
+tg.MainButton.textColor = '#2cab37';
 tg.MainButton.color = '#2cab37';
 tg.MainButton.setText("Отправить");
 tg.MainButton.show();
@@ -21,28 +21,23 @@ let daysInput = document.getElementById("days");
 let timeInput = document.getElementById("time");
 let saveButton = document.getElementById("saveButton");
 
-function checkForm() {
-    saveButton.style.display = "block";
-
-    if (titleInput.value && textInput.value && daysInput.value && timeInput.value) {
-        tg.MainButton.setText("Отправить данные");
-        item = JSON.stringify({
-            title: titleInput.value,
-            text: textInput.value,
-            days: daysInput.value,
-            time: timeInput.value
-        });
-    } else {
-        saveButton.style.display = "none";
-        tg.MainButton.hide();
-    }
-}
-
 
 saveButton.addEventListener("click", function() {
+    item = JSON.stringify({
+        title: titleInput.value,
+        text: textInput.value,
+        days: daysInput.value,
+        time: timeInput.value
+    });
     tg.sendData(item);
 });
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
+    item = JSON.stringify({
+        title: titleInput.value,
+        text: textInput.value,
+        days: daysInput.value,
+        time: timeInput.value
+    });
     tg.sendData(item);
 });

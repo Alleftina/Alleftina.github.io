@@ -7,27 +7,46 @@ tg.MainButton.color = '#2cab37';
 
 let item = "";
 
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-    tg.sendData(item);
-});
-
 let usercard = document.getElementById("usercard");
 
 let p = document.createElement("p");
 
-p.innerText = `${tg.initDataUnsafe.user.first_name}
-${tg.initDataUnsafe.user.last_name}`;
+p.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
 
 usercard.appendChild(p);
 
-document.getElementById("saveButton").addEventListener("click", function() {
-    let title = document.getElementById("title").value;
-    let text = document.getElementById("text").value;
-    let days = document.getElementById("days").value;
-    let time = document.getElementById("time").value;
+let titleInput = document.getElementById("title");
+let textInput = document.getElementById("text");
+let daysInput = document.getElementById("days");
+let timeInput = document.getElementById("time");
+let saveButton = document.getElementById("saveButton");
 
-    item = JSON.stringify({ title, text, days, time });
+function checkForm() {
+    if (titleInput.value && textInput.value && daysInput.value && timeInput.value) {
+        saveButton.style.display = "block";
+        tg.MainButton.setText("Отправить данные");
+        item = JSON.stringify({
+            title: titleInput.value,
+            text: textInput.value,
+            days: daysInput.value,
+            time: timeInput.value
+        });
+        tg.MainButton.show();
+    } else {
+        saveButton.style.display = "none";
+        tg.MainButton.hide();
+    }
+}
 
-    tg.MainButton.setText("Отправить данные");
-    tg.MainButton.show();
+titleInput.addEventListener("input", checkForm);
+textInput.addEventListener("input", checkForm);
+daysInput.addEventListener("input", checkForm);
+timeInput.addEventListener("input", checkForm);
+
+saveButton.addEventListener("click", function() {
+    tg.sendData(item);
+});
+
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+    tg.sendData(item);
 });

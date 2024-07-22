@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram WebApp</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
 </head>
 <body>
-    <div id="usercard"></div>
+	<div class="container">
+		<div class="inner">
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn1">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn2">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn3">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn4">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn5">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn6">Add</button>
+			</div>
+		</div>
+	</div>
+	<div class="usercard" id="usercard">
 
-    <form id="dataForm">
-        <label for="title">Название:</label>
-        <input type="text" id="title" name="title" required><br>
-
-        <label for="text">Текст:</label>
-        <textarea id="text" name="text" required></textarea><br>
-
-        <label for="days">Количество дней:</label>
-        <input type="number" id="days" name="days" required><br>
-
-        <label for="time">Время:</label>
-        <input type="time" id="time" name="time" required><br>
-
-        <button type="button" id="saveButton" style="display: none;">Отправить</button>
-    </form>
+	</div>
 
 	<script src="https://telegram.org/js/telegram-web-app.js"></script>
-
-    <script src="app.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>

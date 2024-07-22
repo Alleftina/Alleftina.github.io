@@ -3,47 +3,94 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 
 tg.MainButton.textColor = '#FFFFFF';
-tg.MainButton.color = '#2fab37';
-tg.MainButton.setText("Отправить");
-tg.MainButton.show();
+tg.MainButton.color = '#2cab37';
 
 let item = "";
 
+let btn1 = document.getElementById("btn1");
+let btn2 = document.getElementById("btn2");
+let btn3 = document.getElementById("btn3");
+let btn4 = document.getElementById("btn4");
+let btn5 = document.getElementById("btn5");
+let btn6 = document.getElementById("btn6");
 
-let p = document.createElement("p");
-
-p.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`;
-
-
-let titleInput = document.getElementById("title");
-let textInput = document.getElementById("text");
-let daysInput = document.getElementById("days");
-let timeInput = document.getElementById("time");
-let saveButton = document.getElementById("saveButton");
-
-
-titleInput.titleInput("input", function(){
+btn1.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
 		tg.MainButton.setText("Вы выбрали товар 1!");
 		item = "1";
 		tg.MainButton.show();
+	}
 });
 
-saveButton.addEventListener("click", function() {
-    item = JSON.stringify({
-        title: titleInput.value,
-        text: textInput.value,
-        days: daysInput.value,
-        time: timeInput.value
-    });
-    tg.sendData(item);
+btn2.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 2!");
+		item = "2";
+		tg.MainButton.show();
+	}
 });
+
+btn3.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 3!");
+		item = "3";
+		tg.MainButton.show();
+	}
+});
+
+btn4.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 4!");
+		item = "4";
+		tg.MainButton.show();
+	}
+});
+
+btn5.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 5!");
+		item = "5";
+		tg.MainButton.show();
+	}
+});
+
+btn6.addEventListener("click", function(){
+	if (tg.MainButton.isVisible) {
+		tg.MainButton.hide();
+	}
+	else {
+		tg.MainButton.setText("Вы выбрали товар 6!");
+		item = "6";
+		tg.MainButton.show();
+	}
+});
+
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
-    item = JSON.stringify({
-        title: titleInput.value,
-        text: textInput.value,
-        days: daysInput.value,
-        time: timeInput.value
-    });
-    tg.sendData(item);
+	tg.sendData(item);
 });
+
+
+let usercard = document.getElementById("usercard");
+
+let p = document.createElement("p");
+
+p.innerText = `${tg.initDataUnsafe.user.first_name}
+${tg.initDataUnsafe.user.last_name}`;
+
+usercard.appendChild(p);
